@@ -1,0 +1,66 @@
+spring:
+  jms:
+    listener:
+      concurrency: 1
+      max-concurrency: 10      
+  jta:
+    enabled: true
+    atomikos:
+      connectionfactory:      
+        max-pool-size: 10
+      properties:
+        transaction-manager-unique-name: registry-addressbook.transaction
+      datasource:
+        unique-resource-name: dataSourceOne
+        max-pool-size: 20
+        min-pool-size: 1
+        borrow-connection-timeout: 10000
+        xa-data-source-class-name: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+        xa-properties:
+          user: admin
+          password: Manana17
+          URL: 'jdbc:mysql://localhost:3306/notes_app?useSSL=false'
+  activemq:
+    broker-url: vm://embedded?broker.persistent=false,useShutdownHook=false
+    in-memory: true
+    non-blocking-redelivery: true
+    packages:
+      trust-all: false
+      trusted: org.cybecube.registry
+    pool:
+      block-if-full: true
+      block-if-full-timeout: -1
+      create-connection-on-startup: true
+      enabled: false
+      expiry-timeout: 0
+      idle-timeout: 30000
+      max-connections: 1
+      maximum-active-session-per-connection: 500
+      reconnect-on-exception: true
+      time-between-expiration-check: -1
+      use-anonymous-producers: true
+  jpa:
+    show-sql: true
+    database: myssql
+    generate-ddl: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+logging:
+  path: /var/lib/jetty/logs
+
+management:
+  endpoints:
+    web:
+      cors:
+        allowed-origins:
+          - all
+        allowed-methods:
+          - GET
+          - POST
+        allowed-headers:
+          - all          
+
+ 
+  
