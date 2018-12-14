@@ -10,8 +10,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc
 @EnableWebMvc
 @EnableTransactionManagement
 @SpringBootApplication
-class RegistryAddressbookApplication
+class AddressbookApplication
 
 fun main(args: Array<String>) {
-    runApplication<RegistryAddressbookApplication>(*args)
+    runApplication<AddressbookApplication>(*args)
 }

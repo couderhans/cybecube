@@ -11,6 +11,8 @@
 */
 package com.cybecube.academy.registry.model
 
+import javax.persistence.Entity
+
 
 /**
  * 
@@ -21,6 +23,7 @@ package com.cybecube.academy.registry.model
  * @param va_ports Linked list of ports, as string
  * @param cloud_address Location info linked to cloud services (AWS,Azure,Google)
  */
+@Entity
 data class Location (
     val id: kotlin.Long? = null,
     /* Logical address of the assistant */

@@ -13,6 +13,7 @@ package com.cybecube.academy.registry.model
 
 import com.cybecube.academy.registry.model.Location
 import com.cybecube.academy.registry.model.State
+import javax.persistence.Entity
 
 /**
  * 
@@ -26,6 +27,7 @@ import com.cybecube.academy.registry.model.State
  * @param &#x60;class&#x60; 
  * @param alive 
  */
+@Entity
 data class Assistant (
     val id: kotlin.Long? = null,
     val title: kotlin.String? = null,

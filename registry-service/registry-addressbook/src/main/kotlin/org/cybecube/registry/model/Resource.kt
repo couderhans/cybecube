@@ -11,6 +11,8 @@
 */
 package com.cybecube.academy.registry.model
 
+import javax.persistence.Entity
+
 
 /**
  * 
@@ -19,6 +21,7 @@ package com.cybecube.academy.registry.model
  * @param url 
  * @param status 
  */
+@Entity
 data class Resource (
     val id: kotlin.Long? = null,
     val name: kotlin.String? = null,

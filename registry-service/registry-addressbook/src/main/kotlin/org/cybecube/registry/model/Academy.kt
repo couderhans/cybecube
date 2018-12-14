@@ -12,18 +12,26 @@
 package com.cybecube.academy.registry
 
 import com.cybecube.academy.registry.model.Course
+import com.fasterxml.jackson.annotation.JsonBackReference
+import javax.persistence.*
 
 /**
  * 
  * @param id 
  * @param title 
- * @param course 
+ * @param courses
  */
+@Entity
+@Table(name = "academy")
 data class Academy (
-    val id: kotlin.Long? = null,
-    val title: kotlin.String? = null,
-    val course: kotlin.Array<Course>? = null
-) {
 
-}
+    @Id @GeneratedValue(strategy= GenerationType.AUTO)
+    val id: Long? = null,
 
+    @Basic(optional = false) @Column(name = "title", nullable = false, length = 128)
+    val title: String? = null,
+
+    @OneToMany(cascade = arrayOf(CascadeType.ALL),mappedBy = "course",fetch = FetchType.LAZY)
+    val courses: Set<Course>? = null
+
+)

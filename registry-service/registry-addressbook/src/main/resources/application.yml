@@ -2,7 +2,13 @@ spring:
   jms:
     listener:
       concurrency: 1
-      max-concurrency: 10      
+      max-concurrency: 10
+  datasource:
+    unique-resource-name: dataSourceOne
+    borrow-connection-timeout: 10000
+    username: admin
+    password: Manana17
+    url: 'jdbc:mysql://registry.cgug7gwojec2.eu-west-3.rds.amazonaws.com:3306/registry'
   jta:
     enabled: true
     atomikos:
@@ -10,16 +16,7 @@ spring:
         max-pool-size: 10
       properties:
         transaction-manager-unique-name: registry-addressbook.transaction
-      datasource:
-        unique-resource-name: dataSourceOne
-        max-pool-size: 20
-        min-pool-size: 1
-        borrow-connection-timeout: 10000
-        xa-data-source-class-name: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
-        xa-properties:
-          user: admin
-          password: Manana17
-          URL: 'jdbc:mysql://localhost:3306/notes_app?useSSL=false'
+      unique-resource-name: dataSourceOne
   activemq:
     broker-url: vm://embedded?broker.persistent=false,useShutdownHook=false
     in-memory: true
@@ -41,7 +38,7 @@ spring:
       use-anonymous-producers: true
   jpa:
     show-sql: true
-    database: myssql
+    database: MYSQL
     generate-ddl: false
     properties:
       hibernate:

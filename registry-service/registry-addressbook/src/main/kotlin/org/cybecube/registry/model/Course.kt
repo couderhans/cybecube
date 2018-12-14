@@ -12,6 +12,7 @@
 package com.cybecube.academy.registry.model
 
 import com.cybecube.academy.registry.model.Assistant
+import javax.persistence.Entity
 
 /**
  * 
@@ -22,13 +23,14 @@ import com.cybecube.academy.registry.model.Assistant
  * @param worker 
  * @param complete 
  */
+@Entity
 data class Course (
     val id: kotlin.Long? = null,
     val title: kotlin.String? = null,
     val initDate: java.time.LocalDateTime? = null,
     /* Course Status */
     val status: Course.Status? = null,
-    val worker: kotlin.Array<Assistant>? = null,
+    val assistant: kotlin.Array<Assistant>? = null,
     val complete: kotlin.Boolean? = null
 ) {
 

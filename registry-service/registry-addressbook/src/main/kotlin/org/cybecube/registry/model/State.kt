@@ -11,12 +11,15 @@
 */
 package com.cybecube.academy.registry.model
 
+import javax.persistence.Entity
+
 
 /**
  * 
  * @param id 
  * @param state 
  */
+@Entity
 data class State (
     val id: kotlin.Long? = null,
     val state: State? = null
