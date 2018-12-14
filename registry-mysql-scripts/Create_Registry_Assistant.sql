@@ -8,8 +8,7 @@ CREATE TABLE `registry`.`assistant` (
         ON DELETE CASCADE,
     location INT,
 		FOREIGN KEY (location)
-        REFERENCES location(id)
-        ON DELETE CASCADE,
+        REFERENCES location(id),
     date_of_birth VARCHAR(12),
     gender VARCHAR(1),
     class VARCHAR(7),

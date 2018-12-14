@@ -11,7 +11,7 @@
 */
 package com.cybecube.academy.registry.model
 
-import javax.persistence.Entity
+import javax.persistence.*
 
 
 /**
@@ -24,18 +24,30 @@ import javax.persistence.Entity
  * @param cloud_address Location info linked to cloud services (AWS,Azure,Google)
  */
 @Entity
+@Table(name = "location")
 data class Location (
-    val id: kotlin.Long? = null,
-    /* Logical address of the assistant */
-    val address: kotlin.String? = null,
-    /* Physical server/host/ip address */
-    val va_host: kotlin.String? = null,
-    /* Logical address linked to host */
-    val va_node: kotlin.String? = null,
-    /* Linked list of ports, as string */
-    val va_ports: kotlin.String? = null,
-    /* Location info linked to cloud services (AWS,Azure,Google) */
-    val cloud_address: kotlin.String? = null
+        @Id @GeneratedValue(strategy= GenerationType.AUTO)
+        val id: Long? = null,
+
+        /* Logical address of the assistant */
+        @Basic(optional = false) @Column(name = "address", nullable = false, length = 30)
+        val address: String? = null,
+
+        /* Physical server/host/ip address */
+        @Basic(optional = false) @Column(name = "va_host", nullable = false, length = 30)
+        val va_host: String? = null,
+
+        /* Logical address linked to host */
+        @Basic(optional = false) @Column(name = "va_node", nullable = false, length = 30)
+        val va_node: String? = null,
+
+        /* Linked list of ports, as string */
+        @Basic(optional = false) @Column(name = "va_ports", nullable = false, length = 30)
+        val va_ports: String? = null,
+
+        /* Location info linked to cloud services (AWS,Azure,Google) */
+        @Basic(optional = false) @Column(name = "cloud_address", nullable = false, length = 10)
+        val cloud_address: String? = null
 ) {
 
 }

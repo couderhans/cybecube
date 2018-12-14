@@ -12,6 +12,7 @@
 package com.cybecube.academy.registry.model
 
 import javax.persistence.Entity
+import javax.persistence.Table
 
 
 /**
@@ -20,11 +21,11 @@ import javax.persistence.Entity
  * @param state 
  */
 @Entity
+@Table(name = "state")
 data class State (
-    val id: kotlin.Long? = null,
+    val id: Long? = null,
     val state: State? = null
 ) {
-
     /**
     * 
     * Values: available,learning,working,alive,stopped
@@ -36,6 +37,5 @@ data class State (
         alive("alive"),
         stopped("stopped");
     }
-
 }
 

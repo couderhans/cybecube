@@ -1,0 +1,3 @@
+CREATE TABLE `registry`.`state` (
+
+)

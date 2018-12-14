@@ -31,7 +31,7 @@ data class Academy (
     @Basic(optional = false) @Column(name = "title", nullable = false, length = 128)
     val title: String? = null,
 
-    @OneToMany(cascade = arrayOf(CascadeType.ALL),mappedBy = "course",fetch = FetchType.LAZY)
+    @OneToMany(cascade = [CascadeType.ALL],mappedBy = "course",fetch = FetchType.LAZY)
     val courses: Set<Course>? = null
 
 )

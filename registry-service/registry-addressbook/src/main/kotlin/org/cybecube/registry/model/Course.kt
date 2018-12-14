@@ -12,7 +12,7 @@
 package com.cybecube.academy.registry.model
 
 import com.cybecube.academy.registry.model.Assistant
-import javax.persistence.Entity
+import javax.persistence.*
 
 /**
  * 
@@ -24,14 +24,27 @@ import javax.persistence.Entity
  * @param complete 
  */
 @Entity
+@Table(name = "course")
 data class Course (
-    val id: kotlin.Long? = null,
-    val title: kotlin.String? = null,
-    val initDate: java.time.LocalDateTime? = null,
-    /* Course Status */
-    val status: Course.Status? = null,
-    val assistant: kotlin.Array<Assistant>? = null,
-    val complete: kotlin.Boolean? = null
+
+    @Id @GeneratedValue(strategy= GenerationType.AUTO)
+    val id: Long? = null,
+
+    @Basic(optional = false) @Column(name = "title", nullable = false, length = 128)
+    val title: String? = null,
+
+    @Basic(optional = false) @Column(name = "initDate", nullable = false, length = 10)
+    val initDate: String? = null,
+
+        /* Course Status */
+    @Basic(optional = false) @Column(name = "status", nullable = false, length = 30)
+    val status: Status? = null,
+
+    @OneToMany(cascade = [CascadeType.ALL], mappedBy = "assistant", fetch = FetchType.LAZY)
+    val assistant: Set<Assistant>? = null,
+
+    @Basic(optional = false) @Column(name = "complete", nullable = false)
+    val complete: Boolean? = null
 ) {
 
     /**

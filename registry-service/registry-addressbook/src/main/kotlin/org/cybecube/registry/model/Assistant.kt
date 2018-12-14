@@ -11,9 +11,7 @@
 */
 package com.cybecube.academy.registry.model
 
-import com.cybecube.academy.registry.model.Location
-import com.cybecube.academy.registry.model.State
-import javax.persistence.Entity
+import javax.persistence.*
 
 /**
  * 
@@ -28,16 +26,36 @@ import javax.persistence.Entity
  * @param alive 
  */
 @Entity
+@Table(name = "assistant")
 data class Assistant (
-    val id: kotlin.Long? = null,
-    val title: kotlin.String? = null,
-    val name: kotlin.String? = null,
-    val state: State? = null,
-    val location: Location? = null,
-    val date_of_birth: kotlin.String? = null,
-    val gender: kotlin.String? = null,
-    val `class`: kotlin.String? = null,
-    val alive: kotlin.Boolean? = null
+        @Id @GeneratedValue(strategy= GenerationType.AUTO)
+        val id: Long? = null,
+
+        @Basic(optional = false) @Column(name = "title", nullable = false, length = 10)
+        val title: String? = null,
+
+        @Basic(optional = false) @Column(name = "name", nullable = false, length = 30)
+        val name: String? = null,
+
+        @JoinColumn(name = "state", nullable = false, updatable = true)
+        @ManyToOne(optional = false, fetch = FetchType.EAGER)
+        val state: State? = null,
+
+        @JoinColumn(name = "location", nullable = false, updatable = false)
+        @ManyToOne(optional = false, fetch = FetchType.EAGER)
+        val location: Location? = null,
+
+        @Basic(optional = false) @Column(name = "date_of_birth", nullable = false, length = 12)
+        val date_of_birth: String? = null,
+
+        @Basic(optional = false) @Column(name = "gender", nullable = false, length = 1)
+        val gender: String? = null,
+
+        @Basic(optional = false) @Column(name = "class", nullable = false, length = 7)
+        val `class`: String? = null,
+
+        @Basic(optional = false) @Column(name = "alive", nullable = false)
+        val alive: Boolean? = null
 ) {
 
 }
