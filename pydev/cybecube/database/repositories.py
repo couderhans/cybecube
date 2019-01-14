@@ -5,6 +5,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
 
+Base = declarative_base()
+
 
 def open_database():
     return lite.connect('C:\\Users\\couder\\Projects\\pydev\\test.db')
