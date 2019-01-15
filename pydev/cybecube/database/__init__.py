@@ -1,10 +1,11 @@
-import sqlite3 as lite
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
+engine = create_engine('sqlite:///C:\\Users\\couder\\Projects\\pydev\\test.db')
 
-def open_database():
-    return lite.connect('C:\\Users\\couder\\Projects\\pydev\\test.db')
+Base = declarative_base()
 
-
-def close_database(con):
-    if con:
-        con.close()
+db_session = sessionmaker()
+db_session.configure(bind=engine)
+session = db_session()

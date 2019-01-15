@@ -16,7 +16,7 @@ def get_repos_from_user(user):
 
 def get_contents_from_repo(user, repo, path):
     try:
-        git_url = '{}/repos/{}/{}/contents.py/{}'.format(GIT_API_URL, user, repo, path)
+        git_url = '{}/repos/{}/{}/contents/{}'.format(GIT_API_URL, user, repo, path)
         print('git url: {}'.format(git_url))
         response = requests.get(git_url, headers=headers)
         return response.json()
