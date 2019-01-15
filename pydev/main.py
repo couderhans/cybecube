@@ -1,6 +1,7 @@
-import cybecube.scan as scan
+import cybecube.mine as mining
 import cybecube.database.repository as repos
 import cybecube.database.content as content
+import cybecube.database.file as file
 
 import sys
 import getopt
@@ -19,8 +20,9 @@ def main(argv):
         elif opt in ('-c', '--create'):
             repos.create_table_repositories()
             content.create_table_content()
+            file.create_table_file()
         elif opt in ('-s', '--scan'):
-            scan.scan_user_repositories(arg)
+            mining.mine_user_repositories(arg)
 
 
 if __name__ == '__main__':
