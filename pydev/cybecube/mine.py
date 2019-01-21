@@ -44,3 +44,6 @@ def mine_repository_content(user, repository, path):
         except AttributeError:
             # counters is not a dictionary, ignore and move on
             pass
+
+def mine_content_file():
+    
