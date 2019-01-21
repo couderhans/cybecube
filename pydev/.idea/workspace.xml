@@ -24,10 +24,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b72f0edc-9b54-4cd1-944b-a08e1d7d9a11" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cybecube/database/file.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cybecube/scan.py" beforeDir="false" afterPath="$PROJECT_DIR$/cybecube/mine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cybecube/mine.py" beforeDir="false" afterPath="$PROJECT_DIR$/cybecube/mine.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,19 +77,21 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="7" />
-          <entry key="py" value="2422" />
+          <entry key="py" value="2449" />
+          <entry key="txt" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="2422" />
+          <entry key="PLAIN_TEXT" value="23" />
+          <entry key="Python" value="2449" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -111,36 +111,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cybecube/mine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="249">
+              <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
-                <marker date="1547561232770" expanded="true" signature="339:340" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="e#0#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cybecube/database/file.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-                <marker date="1547559059323" expanded="true" signature="948:951" ph="..." />
+                <marker date="1547562621868" expanded="true" signature="339:340" ph="..." />
+                <marker date="1547562621868" expanded="true" signature="2156:2161" ph="..." />
               </folding>
             </state>
           </provider>
@@ -173,6 +149,7 @@
         <option value="$PROJECT_DIR$/cybecube/database/file.py" />
         <option value="$PROJECT_DIR$/cybecube/scan.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/cybecube/mine.py" />
       </list>
     </option>
   </component>
@@ -201,12 +178,6 @@
               <item name="pydev" type="b2602c69:ProjectViewProjectNode" />
               <item name="pydev" type="462c0819:PsiDirectoryNode" />
               <item name="cybecube" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pydev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pydev" type="462c0819:PsiDirectoryNode" />
-              <item name="cybecube" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -323,10 +294,19 @@
       <option name="presentableId" value="Default" />
       <updated>1547469782424</updated>
     </task>
+    <task id="LOCAL-00001" summary="QLX - Add mining">
+      <created>1547561473261</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1547561473261</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -352,6 +332,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="QLX - Add mining" />
+    <option name="LAST_COMMIT_MESSAGE" value="QLX - Add mining" />
+  </component>
   <component name="atlassian-ide-plugin-workspace-issues">
     <option name="view">
       <JiraViewConfigurationBean>
@@ -376,9 +360,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -400,10 +381,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-            <marker date="1547548782550" expanded="true" signature="380:381" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -411,10 +388,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-            <marker date="1547559059323" expanded="true" signature="948:951" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -422,19 +395,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cybecube/mine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        <state relative-caret-position="249">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
-            <marker date="1547561232770" expanded="true" signature="339:340" ph="..." />
+            <marker date="1547562621868" expanded="true" signature="339:340" ph="..." />
+            <marker date="1547562621868" expanded="true" signature="2156:2161" ph="..." />
           </folding>
         </state>
       </provider>
