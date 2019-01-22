@@ -24,9 +24,9 @@ class File(Base):
     path = Column(String(250))
     sha = Column(String(250))
     size = Column(Integer)
-    url_id = Column(Integer, ForeignKey('url.url_id'))
+    url_name = Column(String(250), ForeignKey(Url.url))
     url = relationship(Url)
-    content_id = Column(Integer, ForeignKey('content.content_id'))
+    content_name = Column(String(250), ForeignKey(Content.name))
     content = relationship(Content)
 
 
