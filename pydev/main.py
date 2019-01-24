@@ -1,11 +1,15 @@
-import cybecube.mine as mining
+import cybecube.miner.mine as mining
+import cybecube.database.user as users
 import cybecube.database.repository as repos
-import cybecube.database.content as content
-import cybecube.database.file as file
+import cybecube.database.content as contents
+import cybecube.database.file as files
+import cybecube.database.package as packages
 
 import sys
 import getopt
 
+from cybecube.database.user import User
+from sqlalchemy import null
 
 def main(argv):
     try:
@@ -15,14 +19,20 @@ def main(argv):
         print('getopt error {}'.format(optE.args[0]))
     for opt, arg in opts:
         if opt in ('-d', '--delete'):
-            repos.delete_repositories()
-            content.delete_content()
+            repos.delete_repository()
+            contents.delete_content()
+            files.delete_table_file()
+            packages.delete_table_package()
         elif opt in ('-c', '--create'):
-            repos.create_table_repositories()
-            content.create_table_content()
-            file.create_table_file()
+            repos.create_table_repository()
+            contents.create_table_content()
+            files.create_table_file()
+            packages.create_table_package()
         elif opt in ('-s', '--scan'):
-            mining.mine_user_repositories(arg)
+            user = User(name=arg)
+            if users.get_user(user.name) == null:
+                users.insert_into_user(user)
+            mining.mine_user_repositories(user)
 
 
 if __name__ == '__main__':

@@ -12,7 +12,7 @@ class Content(Base):
     content_id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
     type = Column(String(250))
-    repo_id = Column(Integer, ForeignKey('repository.repo_id'))
+    repo_name = Column(Integer, ForeignKey(Repository.name))
     repository = relationship(Repository)
 
 
