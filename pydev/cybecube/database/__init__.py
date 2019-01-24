@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-engine = create_engine('sqlite:///C:\\Users\\couder\\Projects\\pydev\\test.db')
+engine = create_engine('sqlite:///C:\\Users\\HansCouder\\databases>\\test.db')
 
 Base = declarative_base()
 
