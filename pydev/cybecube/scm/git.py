@@ -1,8 +1,21 @@
 import requests
+import cybecube.converter.json2orm as json2orm
 
 USER = 'AUSER'
 GIT_API_URL = 'https://api.github.com'
-headers = {'Authorization': 'token {}'.format('263d696fa716a967f4fd8ceddb0029ce91525f04')}
+headers = {'Authorization': 'token {}'.format('263d696fa716a967f4fd8ceddb0029ce91525f04'),
+           'Content-Type': 'application/json'}
+
+
+def get_repository_from_user(user, repository):
+    try:
+        git_url = '{}/repos/{}/{}'.format(GIT_API_URL, user, repository)
+        response = requests.get(git_url, headers=headers)
+        print(response.json())
+        repository = json2orm.json2repository(response.json(), user)
+        return repository
+    except requests.RequestException as e:
+        print('Failed to get api request from {}'.format(e))
 
 
 def get_repos_from_user(user):
