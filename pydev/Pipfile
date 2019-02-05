@@ -8,8 +8,10 @@ requests = "*"
 numpy = "*"
 easyrest = "*"
 sqlalchemy = "*"
+pygithub = "*"
 
 [dev-packages]
+cybecube = "*"
 
 [requires]
 python_version = "3.7"
