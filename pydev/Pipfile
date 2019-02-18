@@ -9,9 +9,10 @@ numpy = "*"
 easyrest = "*"
 sqlalchemy = "*"
 pygithub = "*"
+cerberus = "1.2"
+marshmallow = "*"
 
 [dev-packages]
-cybecube = "*"
 
 [requires]
 python_version = "3.7"

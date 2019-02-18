@@ -1,10 +1,11 @@
 import cybecube.miner.mine as mining
-import cybecube.scm.github as github
+import cybecube.scm.git as github
 import cybecube.database.user as users
 import cybecube.database.repository as repos
 import cybecube.database.content as contents
 import cybecube.database.file as files
 import cybecube.database.package as packages
+import cybecube.database.clazz as clazzes
 
 import sys
 import getopt
@@ -26,23 +27,23 @@ def main(argv):
         if opt == '--user':
             user = User(name=arg)
         if opt == '--repo':
-            repository = github.get_repository(arg)
+            repository = github.get_repository_from_user(user.name,repository=arg)
             repo = repository
         if opt in ('-d', '--delete'):
             repos.delete_repository()
             contents.delete_content()
             files.delete_table_file()
             packages.delete_table_package()
+            clazzes.delete_table_class()
         elif opt in ('-c', '--create'):
             repos.create_table_repository()
             contents.create_table_content()
             files.create_table_file()
             packages.create_table_package()
+            clazzes.create_table_class()
         elif opt in ('-m', '--mine'):
             if users.get_user(user.name) == null:
                 users.insert_into_user(user)
-            if repos.get_repository(repo) == null:
-                repos.insert_into_repository(repo)
             mining.mine_user_repositories(user)
 
 

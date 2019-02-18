@@ -5,12 +5,16 @@ import cybecube.database.repository as repositories
 import cybecube.database.content as contents
 import cybecube.database.file as files
 import cybecube.database.package as packages
+import  cybecube.database.clazz as clazzes
+import cybecube.database.method as methods
 
 import fnmatch
 
 from cybecube.database.repository import Repository
 from cybecube.database.content import Content
 from cybecube.database.package import Package
+from cybecube.database.clazz import Clazz
+from cybecube.database.method import  Method
 from cybecube.database.file import File, Url
 
 
@@ -69,4 +73,26 @@ def mine_source_code(file, download_url):
             if packages.get_package(package.name) is None:
                 packages.insert_into_package(package)
                 print('package added: {}'.format(package_name))
+        if line.__contains__('public class'):
+            clazz_name = line.split(' ')[2].replace(';', '')
+            print('Clazz name found {}'.format(line))
+            clazz = Clazz(name=clazz_name,
+                          type='java',
+                          package=package)
+            if clazzes.get_clazz(clazz_name) is None:
+                clazzes.insert_into_class(clazz)
+                print('class added: {}'.format(clazz_name))
+        if (line.__contains__('public') or line.__contains__('private')) \
+                and (line.__contains__('(')) and (line.__contains__(')')) and not (line.__contains__('class')):
+            print('line {}'.format(line))
+            accessor = line.replace('    ','').split(' ')[1].replace(';', '')
+            print('accessor {}'.format(accessor))
+            type = line.split(' ')[2].replace(';', '')
+            print('type {}'.format(type))
+            method_name = line.split(' ')[3].replace(';', '')
+            print('method name {}'.format(method_name))
+            method = Method(name=method_name,access=accessor,type=type,clazz=clazz)
+            if methods.get_Method(method_name) is None:
+                methods.insert_into_Method(method)
+                print('Method added: {}'.format(method.name))
     return lines
