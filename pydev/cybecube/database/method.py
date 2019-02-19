@@ -10,8 +10,10 @@ class Method(Base):
     __tablename__ = 'method'
     _id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
+    origin = Column(String(250))
     access = Column(String(250))
     type = Column(String(250))
+    signature = Column(String(250))
     clazz_name = Column(String(250), ForeignKey(Clazz.name))
     clazz = relationship(Clazz)
 
@@ -30,5 +32,5 @@ def insert_into_Method(Method):
 
 
 def get_Method(name):
-    Method = session.query(Method).filter(Method.name == name).first()
-    return Method
+    method = session.query(Method).filter(Method.name == name).first()
+    return method

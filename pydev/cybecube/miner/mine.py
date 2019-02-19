@@ -7,7 +7,7 @@ import cybecube.database.file as files
 import cybecube.database.package as packages
 import  cybecube.database.clazz as clazzes
 import cybecube.database.method as methods
-
+import cybecube.analyser.method as methodbot
 import fnmatch
 
 from cybecube.database.repository import Repository
@@ -82,16 +82,17 @@ def mine_source_code(file, download_url):
             if clazzes.get_clazz(clazz_name) is None:
                 clazzes.insert_into_class(clazz)
                 print('class added: {}'.format(clazz_name))
-        if (line.__contains__('public') or line.__contains__('private')) \
-                and (line.__contains__('(')) and (line.__contains__(')')) and not (line.__contains__('class')):
+        if (methodbot.is_method(line)):
             print('line {}'.format(line))
-            accessor = line.replace('    ','').split(' ')[1].replace(';', '')
+            accessor = methodbot.get_accessor(line)
             print('accessor {}'.format(accessor))
-            type = line.split(' ')[2].replace(';', '')
+            type = methodbot.get_type(line)
             print('type {}'.format(type))
-            method_name = line.split(' ')[3].replace(';', '')
+            method_name = methodbot.get_method_name(line)
             print('method name {}'.format(method_name))
-            method = Method(name=method_name,access=accessor,type=type,clazz=clazz)
+            signature = methodbot.get_signature(line)
+            print('signature {}'.format(signature))
+            method = Method(origin=line.strip().replace('{',''),name=method_name,access=accessor,type=type,signature=signature,clazz=clazz)
             if methods.get_Method(method_name) is None:
                 methods.insert_into_Method(method)
                 print('Method added: {}'.format(method.name))

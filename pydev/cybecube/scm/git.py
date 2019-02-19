@@ -3,7 +3,7 @@ import cybecube.converter.json2orm as json2orm
 
 USER = 'AUSER'
 GIT_API_URL = 'https://api.github.com'
-headers = {'Authorization': 'token {}'.format('ff3161546685d11e9116939d227fc395ec0f9ee3'),
+headers = {'Authorization': 'token {}'.format('26e0cd93bbc7f977a53b5022bfa9cb9ea8fa5088'),
            'Content-Type': 'application/json'}
 
 

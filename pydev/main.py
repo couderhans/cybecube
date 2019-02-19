@@ -6,6 +6,7 @@ import cybecube.database.content as contents
 import cybecube.database.file as files
 import cybecube.database.package as packages
 import cybecube.database.clazz as clazzes
+import cybecube.database.method as methods
 
 import sys
 import getopt
@@ -35,12 +36,14 @@ def main(argv):
             files.delete_table_file()
             packages.delete_table_package()
             clazzes.delete_table_class()
+            methods.delete_table_method()
         elif opt in ('-c', '--create'):
             repos.create_table_repository()
             contents.create_table_content()
             files.create_table_file()
             packages.create_table_package()
             clazzes.create_table_class()
+            methods.create_table_method()
         elif opt in ('-m', '--mine'):
             if users.get_user(user.name) == null:
                 users.insert_into_user(user)
